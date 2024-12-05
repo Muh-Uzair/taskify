@@ -7,6 +7,8 @@ interface Props {
 }
 
 const ToDoDisplay: React.FC<Props> = ({ allTodo }) => {
+  // VARS
+
   return (
     <main>
       <ul className="flex flex-col gap-[5px]">

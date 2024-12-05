@@ -3,3 +3,8 @@ export interface AllTodo {
   todo: string;
   todoCompeted: boolean;
 }
+
+export interface TodoEditType {
+  todoEdit: boolean;
+  id: string;
+}

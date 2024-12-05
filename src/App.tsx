@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header";
 import ToDoForm from "./components/ToDoForm";
 import { AllTodo } from "./models";
 import { v4 as uuidv4 } from "uuid";
 import ToDoDisplay from "./components/ToDoDisplay";
+import { useTodoContext } from "./useTodoContext";
 
 const App: React.FC = () => {
   // VARS
-  const [todo, setTodo] = useState<string>("");
-  const [allTodo, setAllTodo] = useState<AllTodo[]>([]);
+  const { todo, setTodo, allTodo, setAllTodo } = useTodoContext();
 
   // FN
   const todoSubmit = (e: React.FormEvent<HTMLFormElement>) => {
