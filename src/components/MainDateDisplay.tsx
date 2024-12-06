@@ -1,12 +1,23 @@
 import React from "react";
 import { useApp2Context } from "../useApp2Context";
 
+// FN
+const getFutureDate = (daysToAdd: number): string => {
+  const currentDate = new Date();
+  const futureDate = new Date(currentDate); // Create a copy of the current date
+  futureDate.setDate(currentDate.getDate() + daysToAdd); // Add the specified number of days
+  return futureDate.toDateString(); // Format as "Fri Dec 06 2024"
+};
+
+// CMP
 const MainDateDisplay: React.FC = () => {
   // VARS
   const {
     state: { daysCount },
     dispatch,
   } = useApp2Context();
+
+  const futureDate = getFutureDate(daysCount);
 
   // JSX
   return (
@@ -19,6 +30,7 @@ const MainDateDisplay: React.FC = () => {
           -
         </button>
         <input
+          id="daysInput"
           onChange={(e) =>
             dispatch({
               type: "daysInput",
@@ -38,7 +50,7 @@ const MainDateDisplay: React.FC = () => {
       </div>
 
       <div className="mt-[10px] flex items-center justify-center">
-        Date today
+        <p>{futureDate}</p>
       </div>
     </main>
   );

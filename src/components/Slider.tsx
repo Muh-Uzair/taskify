@@ -12,6 +12,7 @@ const Slider: React.FC = () => {
   return (
     <section className="flex gap-[5px]">
       <input
+        id="slider"
         value={rangeVal}
         onChange={(e) =>
           dispatch({
@@ -20,7 +21,6 @@ const Slider: React.FC = () => {
           })
         }
         type="range"
-        defaultValue={0}
       />
       <span>{rangeVal}</span>
     </section>
